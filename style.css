@@ -1,0 +1,257 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.679);
+  padding: 20px;
+}
+
+.container header {
+  display: grid;
+  grid-gap: 5px;
+  height: 100%;
+  /* gap: 5px 5px;*/
+  /* column-gap: 5px; */
+  /* row-gap: 5px; */
+  /* grid-template-columns: 200px repeat(3, minmax(100px, 1fr));
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "baris1-1 baris1-2 baris1-2 baris1-4"
+    "baris1-1 baris2-2 baris2-3 baris2-4"
+    "baris1-1 baris3-2 . baris2-4"; */
+  /* --heightA: calc(100vh / 3);
+  --heightB: calc(0.1 * var(--heightA));
+  --heightC: calc(0.1 * var(--heightB)); */
+  grid-template:
+    [b1] "baris1-1 baris1-2 baris1-2 baris1-4" minmax(20vh, calc(220px + 10vw))
+    [b2] "baris1-1 baris2-2 baris2-3 baris2-4"
+    [b3] "baris1-1 baris3-2 baris3-3 baris2-4"
+    [b3e] / minmax(30%, 40%)
+    minmax(15%, calc(100vw / 6)) minmax(15%, calc(100vw / 6)) 25%;
+  grid-auto-rows: 10%;
+  gap: 5px;
+  /* align-items: center;
+  justify-items: center; */
+  /* justify-items: center; */
+  /* align-content: space-around; */
+  /* grid-auto-columns: 20px; */
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 0 50px; */
+  /* justify-self: center; */
+}
+
+.content-1 {
+  grid-area: baris1-1;
+  background-color: #e8f9fd;
+  align-items: start;
+  padding: 5px;
+  flex-direction: column;
+}
+
+.content-1 .shape {
+  shape-outside: polygon(0 0, 0 200px, 300px 600px);
+  clip-path: polygon(0 0, 0 200px, 300px 600px);
+  width: 100px;
+  height: 100px;
+  float: left;
+  opacity: 0.3;
+  background-color: #8ebf42;
+}
+.content-1 p {
+  background-image: linear-gradient(
+    to bottom,
+    green 20px,
+    lightskyblue,
+    yellow
+  );
+}
+
+.content-1 .radial {
+  width: 200px;
+  height: 200px;
+  margin-top: 10px;
+  /* background-color: #181818; */
+  background-image: radial-gradient(circle closest-side at center, red, yellow);
+}
+.content-2 {
+  grid-area: baris1-2;
+  background-color: #d2001a;
+  /* padding: calc(10% - 2.3vw) 5px; */
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  justify-content: left;
+  align-content: center;
+}
+
+.content-3 {
+  grid-area: baris1-4;
+  background-color: #d2001a;
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
+  padding: 5px;
+  text-align: left;
+  color: white;
+  font-size: 0.9em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.content-3 details[open] span {
+  border-top: 1px solid white;
+  margin-top: 5px;
+  display: block;
+}
+
+.content-3 details[open] summary {
+  border-bottom: 1px solid white;
+}
+
+.content-3 details {
+  border: 1px solid white;
+  padding: 0.5em 0.5em;
+}
+.content-4 {
+  grid-area: baris2-2;
+  font-size: x-large;
+  font-weight: 900;
+  text-align: center;
+  background-clip: text;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: calc(25% + 1.3vw - 10%) 0;
+  background-color: #24a19c;
+  background-image: url(img/img3.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 2px solid #24a19c;
+}
+.content-5,
+.content-8 {
+  grid-area: baris2-3;
+  background-color: #24a19c;
+  background-image: url(https://c4.wallpaperflare.com/wallpaper/760/955/638/artwork-landscape-sky-mountains-wallpaper-preview.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.content-5 .mix {
+  color: #4dfaf4;
+  width: 80%;
+  background-color: #777777;
+  mix-blend-mode: multiply;
+}
+.content-6 {
+  grid-area: baris2-4;
+  background-color: #ffde00;
+  padding: 10px;
+}
+
+.content-6 fieldset {
+  padding: 10px;
+}
+.content-6 form fieldset button {
+  padding: 3px;
+}
+.content-7 {
+  grid-area: baris3-2;
+  padding: calc(25% + 1.3vw - 10%) 0;
+
+  background-color: #59ce8f;
+}
+
+.content-8 {
+  grid-area: baris3-3;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  background-color: #59ce8f;
+  background-image: url(https://c4.wallpaperflare.com/wallpaper/214/442/543/digital-art-son-goku-dragon-ball-dragon-ball-z-island-hd-wallpaper-preview.jpg);
+  padding: 10px;
+  background-blend-mode: multiply;
+  display: flex;
+  align-content: center;
+  color: #4dfaf4;
+}
+
+.content-9 {
+  grid-column: baris1-1/-1;
+  /* grid-column-start: 1;
+  grid-column-end: 5; */
+  /* grid-column-start: baris1-1;
+  grid-column-end: baris2-4; */
+  background-color: #181818;
+}
+
+.content-2 .img {
+  scroll-snap-align: end;
+  border: 5px solid rgba(0, 0, 0, 0);
+  min-width: 100%;
+  max-height: 100%;
+}
+
+.content-2::-webkit-scrollbar {
+  /* display: block; */
+  height: 20px;
+  background-color: #766e6e;
+}
+
+.content-2::-webkit-scrollbar-track-piece:start /*start / end, increament | decreament*/ {
+  background-color: #cbcbcb;
+}
+
+.content-2::-webkit-scrollbar-track {
+  background-color: #8e8e8e;
+  margin-inline-start: 3px;
+  margin-inline-end: 3px;
+}
+.content-2::-webkit-scrollbar-thumb {
+  background-color: #676767;
+  border: 2.3px solid #919191;
+}
+
+.content-2::-webkit-scrollbar-button:single-button:decrement {
+  background-color: #828282;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent rgb(193, 191, 191) transparent transparent;
+}
+
+.content-2::-webkit-scrollbar-button:single-button:increment {
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid rgb(193, 191, 191);
+  background-color: #828282;
+}
+
+@media only screen and (max-width: 756px) {
+  .container .content-1 {
+    grid-column: 1/5;
+    grid-row: -4/-3;
+  }
+  .container .content-3 {
+    grid-column: 1/2;
+    grid-row: 4/3;
+  }
+  .container .content-2 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+}
